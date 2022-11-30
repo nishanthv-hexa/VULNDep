@@ -27,6 +27,11 @@ pipeline {
 		dependencyCheck additionalArguments: '--format HTML --format XML', odcInstallation: 'Owasp dependency Check'
                 dependencyCheckPublisher pattern: 'dependency-check-report.xml'
  }
+		stage ('NPM Audit'){
+			steps {
+			sh 'npm audit'
+			}
+		}
 }
 }
 }
